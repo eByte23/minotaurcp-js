@@ -51,7 +51,7 @@ interface IPlugin {
   getPackageInfo(): IPluginPackageInfo;
   getRequiresDbChanges?(): boolean;
   getRequiresFsChanges?(): boolean;
-  
+  getApiRoutes?(): boolean
 }
 
 interface IPluginPackageInfo {

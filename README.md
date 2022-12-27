@@ -1,2 +1,8 @@
 # minotaurcp-core-js
-Web management panel for nginx and apache based in the functionality of Sentora/Cpanel written in node javascript react typscript
+Web management panel for Nginx and apache based on the functionality of Sentora/cPanel written in node javascript react typescript
+
+
+
+
+## Todo 
+add cli app https://oclif.io/
