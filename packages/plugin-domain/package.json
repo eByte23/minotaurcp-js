@@ -8,6 +8,7 @@
     "lint": "TIMING=1 eslint \"**/*.ts*\""
   },
   "devDependencies": {
+    "@minotaurcp/plugin-base": "*",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
     "react": "^18.2.0",
@@ -15,8 +16,7 @@
     "eslint": "^7.32.0",
     "eslint-config-custom": "*",
     "tsconfig": "*",
-    "typescript": "^4.5.2",
-    "@minotaurcp/plugin-base": "*"
+    "typescript": "^4.5.2"
   },
   "peerDependencies": {
     "react": "^18.2.0",

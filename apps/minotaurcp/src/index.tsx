@@ -1,3 +1,4 @@
+/// <reference types="@babel/core" />
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
@@ -15,6 +16,11 @@ import {
   useRouteProvider,
   InternalRouteProvider,
 } from "./hooks/RouteProviderHook";
+
+
+import * as Minotaurcp from "@minotaurcp/plugin-ui";
+
+globalThis.Minotaur = Minotaurcp;
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

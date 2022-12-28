@@ -1,3 +1,25 @@
 {
-    
+  "installedPlugins": {
+    "@minotaurcp/plugin-domain": {
+      "displayName": "Domains",
+      "uiRoute": "domains",
+      "packageName": "@minotaurcp/plugin-domain",
+      "publicPath":"domains-123456",
+      "version": "0.0.1-alpha1",
+      "systemPackage": true,
+      "required": false
+    },
+    "@minotaurcp/plugin-postgres": {
+      "displayName": "Postgres",
+      "uiRoute": "postgres",
+      "packageName": "@minotaurcp/plugin-postgres",
+      "publicPath":"postgres-123456",
+      "version": "0.0.1-alpha1",
+      "systemPackage": true,
+      "required": false
+    }
+  },
+  "disabledPlugins": {
+    "@minotaurcp/plugin-postgres": true
+  }
 }
