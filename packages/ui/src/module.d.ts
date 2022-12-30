@@ -5,41 +5,43 @@ interface Window {
 }
 
 interface IMinotaur {
+  UI: IUIComponents;
   Actions: IActionsManager;
   Plugins: {
-    init: (plugin: any) => void;
+    init: <T extends MinotaurPlugin>(plugin: PluginConstructor<T>) => void;
   };
+  Render: IRenderHelper
 }
 
-declare const Minotaur: {
-  Plugins: {
-    init(MinotaurPlugin);
-  };
-  Actions: IActionsManager;
-};
 
-// declare global {
-//   namespace NodeJS {
-//     interface Global {
-//       Minotaur: IMinotaur;
-//     }
-//   }
-// }
+interface IRenderHelper {
+  addListener: (callback: IRenderListener) => void;
+  removeListener: (callback: IRenderListener) => void;
+  trigger: () => void;
+}
+
+interface IUIComponents {
+  menuItems: IMenuItem[];
+}
+
+interface IMenuItem {
+  key: string;
+  label: string;
+  icon: string;
+  display?: boolean;
+}
+
+export interface IMinotaurPlugin {
+  name: string;
+  init(minotaur: IMinotaur): void;
+}
+
+// eslint-disable-next-line import/no-unused-modules
+export type PluginConstructor<T> = new () => T;
 
 declare global {
   var Minotaur: IMinotaur;
 }
-
-
-// declare module NodeJS {
-//   interface Global {
-//     Minotaur: IMinotaur;
-//   }
-
-//   interface globalThis {
-//     Minotaur: IMinotaur;
-//   }
-// }
 
 declare const __FPB_PLUGIN_UNIQUE_NAME: string;
 declare const __FPB_PLUGIN_VERSION: string;

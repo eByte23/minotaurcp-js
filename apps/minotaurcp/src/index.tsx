@@ -17,10 +17,14 @@ import {
   InternalRouteProvider,
 } from "./hooks/RouteProviderHook";
 
-
 import * as Minotaurcp from "@minotaurcp/plugin-ui";
+import { MainLayout } from "./layout/Main";
 
-globalThis.Minotaur = Minotaurcp;
+import "@minotaurcp/plugin-domain";
+import { MinotaurControlPanelContextProvider } from "./hooks/useMinotaurCP";
+
+// globalThis.Minotaur = Minotaurcp;
+const Minotaur = Minotaurcp;
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -69,20 +73,24 @@ const AppRoute = () => {
 
   return (
     <BrowserRouter>
-      <Routes>
-        {p?.routes.map((r) => (
-          <Route key={r.path} path={r.path} element={r.element} />
-        ))}
-      </Routes>
+      <MainLayout>
+        <Routes>
+          {p?.routes.map((r) => (
+            <Route key={r.path} path={r.path} element={r.element} />
+          ))}
+        </Routes>
+      </MainLayout>
     </BrowserRouter>
   );
 };
 
 root.render(
   <React.StrictMode>
-    <InternalRouteProvider>
-      <AppRoute />
-    </InternalRouteProvider>
+    <MinotaurControlPanelContextProvider>
+      <InternalRouteProvider>
+        <AppRoute />
+      </InternalRouteProvider>
+    </MinotaurControlPanelContextProvider>
   </React.StrictMode>
 );
 

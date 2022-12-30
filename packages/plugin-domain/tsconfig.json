@@ -1,5 +1,14 @@
 {
   "extends": "tsconfig/react-library.json",
   "include": ["."],
+  "compilerOptions": {
+    "types": ["@minotaurcp/plugin-ui"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "jsx": "react"
+  },
   "exclude": ["dist", "build", "node_modules"]
 }

@@ -1,7 +1,12 @@
 /// <reference types="node" />
 
 import { EventEmitter } from "events";
-import { ActionFunction, ActionPayload, IActionsManager, PayloadUpdateFunction } from "../../module";
+import {
+  ActionFunction,
+  ActionPayload,
+  IActionsManager,
+  PayloadUpdateFunction,
+} from "../module";
 
 type InternalActionsObj = { [key: string]: ActionFunction };
 
@@ -28,14 +33,14 @@ export class ActionsManagerImpl implements IActionsManager {
 
   async invokeAction(name: string, payload?: ActionPayload) {
     if (!(name in this.actions)) {
-      throw new Error(`Action name '${name} is not registered.`);
+      throw new Error(`Action name '${name}' is not registered.`);
     }
 
     // run _invokeBefore()
 
     const actionResult = await this.actions[name]?.(payload);
     // run _invokeAfter()
-
+    Minotaur.Render.trigger();
     return actionResult;
   }
 }
